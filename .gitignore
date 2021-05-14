@@ -48,3 +48,6 @@ Temporary Items
 /build/
 /dist/
 /nbproject/private/
+
+#VSCODE settings
+.vscode
