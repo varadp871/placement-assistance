@@ -32,16 +32,16 @@ public class StudentSignin extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             int flag=0;
-            String ureg=request.getParameter("ureg");
-            String upass=request.getParameter("upass");
+            String ureg=request.getParameter("username");
+            String upass=request.getParameter("password");
             Connection conn;
             Statement stmt;
             ResultSet rs;
             String driver="com.mysql.jdbc.Driver";
-            String url="jdbc:mysql://localhost/";
-            String dbname="portal";
+            String url="jdbc:mysql://localhost:3306/";
+            String dbname="placement-assistance";
             String userName="root";
-            String Password="family";
+            String Password="";
                    
                     
             /*
@@ -59,14 +59,14 @@ public class StudentSignin extends HttpServlet {
             Class.forName(driver).newInstance();
             conn=DriverManager.getConnection(url+dbname,userName, Password);
             stmt=conn.createStatement();
-            String sql="Select name from Student where regno='"+ureg+"' and dob='"+upass+"'";
+            String sql="SELECT username FROM studentsignin WHERE username='"+ureg+"' AND password='"+upass+"'";
             rs=stmt.executeQuery(sql);
             if(rs.next() == false){
             out.println("Invalid UserName or Password");
             }
             else{
-                String n=rs.getString("name");
-                response.sendRedirect("Announcements.jsp?name="+n+"&regno="+ureg);
+                String n=rs.getString("username");
+                out.println("SUCCESS" + " " + n);
             
             }
             }

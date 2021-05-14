@@ -17,8 +17,8 @@ import java.sql.*;
  *
  * @author Admin
  */
-@WebServlet(name = "AdminSignin", urlPatterns = {"/AdminSignin"})
-public class AdminSignin extends HttpServlet {
+@WebServlet(name = "AdminSignIn", urlPatterns = {"/AdminSignIn"})
+public class AdminSignIn extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -36,16 +36,16 @@ public class AdminSignin extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             int flag=0;
-            String ureg=request.getParameter("ureg");
-            String upass=request.getParameter("upass");
+            String ureg=request.getParameter("username");
+            String upass=request.getParameter("password");
             Connection conn;
             Statement stmt;
             ResultSet rs;
             String driver="com.mysql.jdbc.Driver";
-            String url="jdbc:mysql://localhost/";
-            String dbname="portal";
+            String url="jdbc:mysql://localhost:3306/";
+            String dbname="placement-assistance";
             String userName="root";
-            String Password="family";
+            String Password="";
                    
                     
             /*
@@ -63,14 +63,14 @@ public class AdminSignin extends HttpServlet {
             Class.forName(driver).newInstance();
             conn=DriverManager.getConnection(url+dbname,userName, Password);
             stmt=conn.createStatement();
-            String sql="Select name from admin where name='"+ureg+"' and password='"+upass+"'";
+            String sql="SELECT username FROM adminsignin WHERE username='"+ureg+"' AND password='"+upass+"'";
             rs=stmt.executeQuery(sql);
             if(rs.next() == false){
             out.println("Invalid UserName or Password");
             }
             else{
-                String n=rs.getString("name");
-                response.sendRedirect("adchange.jsp?name="+n);
+                String n=rs.getString("username");
+                out.println("SUCCESS" + " " + n);
             
             }
             }

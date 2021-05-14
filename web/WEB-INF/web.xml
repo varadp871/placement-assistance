@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>StudentSignin</servlet-name>
-        <servlet-class>StudentSignin</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Schedule</servlet-name>
         <servlet-class>Schedule</servlet-class>
     </servlet>
@@ -28,10 +24,14 @@
         <servlet-name>addcomp</servlet-name>
         <servlet-class>addcomp</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <servlet>
+        <servlet-name>AdminSignIn</servlet-name>
+        <servlet-class>AdminSignIn</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>StudentSignin</servlet-name>
-        <url-pattern>/StudentSignin</url-pattern>
-    </servlet-mapping>
+        <servlet-class>StudentSignin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Schedule</servlet-name>
         <url-pattern>/Schedule</url-pattern>
@@ -55,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>addcomp</servlet-name>
         <url-pattern>/addcomp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminSignIn</servlet-name>
+        <url-pattern>/AdminSignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentSignin</servlet-name>
+        <url-pattern>/StudentSignin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
