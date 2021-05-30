@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -70,7 +71,10 @@ public class AdminSignIn extends HttpServlet {
             }
             else{
                 String n=rs.getString("username");
+                HttpSession session = request.getSession();
+                session.setAttribute("username", ureg);
                 out.println("SUCCESS" + " " + n);
+                response.sendRedirect("welcomeAdmin.jsp?user="+n);
             
             }
             }

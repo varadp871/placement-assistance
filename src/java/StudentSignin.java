@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Admin
@@ -32,7 +33,7 @@ public class StudentSignin extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             int flag=0;
-            String ureg=request.getParameter("username");
+            String ureg=request.getParameter("grno");
             String upass=request.getParameter("password");
             Connection conn;
             Statement stmt;
@@ -59,14 +60,18 @@ public class StudentSignin extends HttpServlet {
             Class.forName(driver).newInstance();
             conn=DriverManager.getConnection(url+dbname,userName, Password);
             stmt=conn.createStatement();
-            String sql="SELECT username FROM studentsignin WHERE username='"+ureg+"' AND password='"+upass+"'";
+            String sql="SELECT grno FROM studentsignin WHERE grno='"+ureg+"' AND password='"+upass+"'";
             rs=stmt.executeQuery(sql);
+            String registered = "SELECT registered FROM student_register where grno='"+ureg+"'";
             if(rs.next() == false){
             out.println("Invalid UserName or Password");
             }
             else{
-                String n=rs.getString("username");
-                out.println("SUCCESS" + " " + n);
+                String n=rs.getString("grno");
+                HttpSession session = request.getSession();
+                session.setAttribute("registered", registered);
+                session.setAttribute("GRNo", ureg);
+                response.sendRedirect("announcements.jsp?grno="+n);
             
             }
             }

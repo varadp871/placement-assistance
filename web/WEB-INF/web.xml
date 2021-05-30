@@ -32,6 +32,18 @@
         <servlet-name>StudentSignin</servlet-name>
         <servlet-class>StudentSignin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutAdmin</servlet-name>
+        <servlet-class>LogoutAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutStu</servlet-name>
+        <servlet-class>LogoutStu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>Profile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Schedule</servlet-name>
         <url-pattern>/Schedule</url-pattern>
@@ -63,6 +75,18 @@
     <servlet-mapping>
         <servlet-name>StudentSignin</servlet-name>
         <url-pattern>/StudentSignin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutAdmin</servlet-name>
+        <url-pattern>/LogoutAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutStu</servlet-name>
+        <url-pattern>/LogoutStu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
