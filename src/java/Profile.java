@@ -1,83 +1,133 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.io.*;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.*;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author my pc
- */
-public class Profile extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        
-        String f_name = request.getParameter("f_name");
-        String l_name = request.getParameter("l_name");
-        String email = request.getParameter("email");
-        
-
-        out.println("<h2>First Name : "+ f_name + "</h2>");
-        
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+@WebServlet("/uploadServlet")
+@MultipartConfig(maxFileSize = 16177215)
+public class Profile extends HttpServlet{
+  public void init(ServletConfig config) throws ServletException{
+  super.init(config);
+  }
+  /**Process the HTTP Get request*/
+  public void doPost(HttpServletRequest req, 
+  HttpServletResponse res) throws ServletException,
+  IOException{
+  String connectionURL = "jdbc:mysql://localhost:3306/placement-assistance";
+  Connection connection=null;
+  ResultSet rs;
+  res.setContentType("text/html");
+  PrintWriter out = res.getWriter();
+  InputStream inputStream = null;
+  Part filePart = req.getPart("resume");
+        if (filePart != null) {
+            // prints out some information for debugging
+            System.out.println(filePart.getName());
+            System.out.println(filePart.getSize());
+            System.out.println(filePart.getContentType());
+             
+            // obtains input stream of the upload file
+            inputStream = filePart.getInputStream();
+        }
+  
+  //get the variables entered in the form
+  
+        String grno = req.getParameter("gr_no");
+        String email = req.getParameter("email");
+        String full_name = req.getParameter("full_name");
+        String gender = req.getParameter("gender");
+        String dob = req.getParameter("dob");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // your template here
+        java.util.Date dateStr = null;
+      try {
+          dateStr = formatter.parse(dob);
+      } catch (ParseException ex) {
+          Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+      }
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+        String mbno = req.getParameter("mb_no");
+        String per_email = req.getParameter("personal_email");
+        String quali = req.getParameter("qualification");
+        String registered = "true";
+        String pass_yr = req.getParameter("passing_year");
+        String tenth_per = req.getParameter("tenth_per");
+        String twelth_per = req.getParameter("twelth_per");
+        String diploma_per = req.getParameter("diploma_per");
+        String college_name = req.getParameter("college_name");
+        String grad_cgpa = req.getParameter("grad_cgpa");
+        String grad_per = req.getParameter("grad_per");
+        String resume1 = req.getParameter("resume");
+   
+  try {
+  // Load the database driver
+  Class.forName("com.mysql.jdbc.Driver");
+  // Get a Connection to the database
+  connection = DriverManager.getConnection
+  (connectionURL, "root", ""); 
+  //Add the data into the database
+  String sql = 
+  "INSERT INTO student_register VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  
+  PreparedStatement pst = 
+  connection.prepareStatement(sql);
+  
+            pst.setString(1, grno);
+            pst.setString(2, email);
+            pst.setString(3, full_name);
+            pst.setString(4, registered);
+            pst.setString(5, gender);
+            pst.setString(6, dob);
+            pst.setString(7, mbno);
+            pst.setString(8, per_email);
+            pst.setString(9, quali);
+            pst.setString(10, pass_yr);
+            pst.setString(11, tenth_per);
+            pst.setString(12, twelth_per);
+            pst.setString(13, diploma_per);
+            pst.setString(14, college_name);
+            pst.setString(15, grad_cgpa);
+            pst.setString(16, grad_per);
+             if (inputStream != null) {
+                // fetches input stream of the upload file for the blob column
+                pst.setBlob(17, inputStream);
+            }
+            int row = pst.executeUpdate();
+            if (row > 0) {
+                out.println( "File uploaded and saved into database \n");
+            }
+            
+  int numRowsChanged = pst.executeUpdate();
+  // show that the new account has been created
+  out.println(" Hello : ");
+  out.println(" '"+full_name+"'");
+  pst.close();
+  }
+  catch(ClassNotFoundException e){
+  out.println("Couldn't load database driver: " 
+  + e.getMessage());
+  }
+  catch(SQLException e){
+  out.println("SQLException caught: " 
+  + e.getMessage());
+  }
+  catch (Exception e){
+  out.println(e);
+  }
+  finally {
+  // Always close the database connection.
+  try {
+  if (connection != null) connection.close();
+  }
+  catch (SQLException ignored){
+  out.println(ignored);
+  }
+  }
+  }
 }

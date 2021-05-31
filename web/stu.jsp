@@ -12,7 +12,18 @@
         <title>Student Login</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-         
+        <style>
+            input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+        </style>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
           <link rel="stylesheet" type="text/css" href="./css/stylemenu.css">
     </head>
@@ -32,7 +43,10 @@
 
 </div>
      <br>
-        <div class="container">
+        <div class="container d-flex justify-content-center">
+            
+                <br>
+                <div class='border border-4 border-primary rounded-3 px-3 py-5'>
                     <form  method="POST" action="StudentSignin">
                         <div id="login">
 
@@ -41,7 +55,7 @@
                                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id = "user" name = "grno">
                             </div>
                             <br>
-                            <br>
+                           
 
 
                             <div class="input-group mb-3">
@@ -51,10 +65,9 @@
 
 
                             <br>
-
+                            <br>
                         </div>
-                        <br>
-                        <br>
+                       
                         <div>
 
 
@@ -62,6 +75,11 @@
 
                         </div>
                     </form>
+                </div>
+                
+            </div>
+     
+                    
                 </div>
           
 

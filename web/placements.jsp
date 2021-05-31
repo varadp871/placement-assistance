@@ -10,6 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Placements | Vishwakarma Institute of Technology</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="./css/stylemenu.css">
     </head>
     <body>
@@ -17,7 +19,7 @@
 		<img src= "./assets/logo2.png" id = 'logo' style="cursor: pointer;">
 		<h1>Vishwakarma Institute of Technology</h1>
 	</div>
-	<div class="navbar">
+<!--	<div class="navbar">
 	
             <ul>
                  <li><a href="placements.jsp"> Placements </a></li> 
@@ -25,18 +27,21 @@
                  <li><a href="ContactUs.html"> Contact Us </a></li> 
             </ul>
 
-        </div>
+        </div>-->
         <div>
 
         <center>
             <FORM method="GET" action="ad.jsp">
-             <INPUT TYPE="submit" style="width:200px;height:50px;text-align:center" VALUE="ADMIN&nbsp; LOGIN">
+                <button type="submit"class="btn btn-outline-primary">
+                    Admin Login
+                </button>
             </FORM>
          <br>
         
             <FORM method="GET" action="stu.jsp">
-            <INPUT TYPE="submit" style="width:200px;height:50px;text-align:center" VALUE="STUDENT&nbsp; LOGIN">
-             </FORM>
+ <button type="submit"class="btn btn-outline-primary">
+                    Student Login
+                </button>             </FORM>
         </center>
 </div>
     </body>

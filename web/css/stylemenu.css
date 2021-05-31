@@ -34,12 +34,13 @@ li a {
   text-decoration: none;
   border: 1px solid white;
   border-radius: 10px;
+  transition: all 0.5s ease-out;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #d8e1e7;
-  transform: all 0.25s;
+  
 }
 
 #logo {

@@ -47,7 +47,7 @@
 </body>
 		<footer>
 			<p>All Rights Reserved &copy; VIT, Pune.</p>
-			<p>Website Designed by Group BT-09</p>
+			<p>Website Designed & Developed by Group BT-09</p>
 		</footer>
 </html>
    

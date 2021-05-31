@@ -5,10 +5,6 @@
         <servlet-class>Schedule</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>insert</servlet-name>
-        <servlet-class>insert</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>change</servlet-name>
         <servlet-class>change</servlet-class>
     </servlet>
@@ -44,13 +40,13 @@
         <servlet-name>Profile</servlet-name>
         <servlet-class>Profile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddCompany</servlet-name>
+        <servlet-class>AddCompany</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Schedule</servlet-name>
         <url-pattern>/Schedule</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>insert</servlet-name>
-        <url-pattern>/insert</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>change</servlet-name>
@@ -87,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
         <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCompany</servlet-name>
+        <url-pattern>/AddCompany</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

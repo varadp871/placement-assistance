@@ -37,14 +37,16 @@
 
                 <div class="container">
                     <form  method="POST" action="AdminSignIn">
-                        <div id="login">
-
-                            <div class="input-group mb-3">
+                        <div id="login" class="row">
+                            <div class="col"></div>
+                            <div class="col border border-primary rounded rounded-3 border-4">
+                                <br>
+                                <br>
+                                 <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id = "user" name = "username">
                             </div>
-                            <br>
-                            <br>
+                                <br>
 
 
                             <div class="input-group mb-3">
@@ -53,9 +55,11 @@
                             </div>
 
 
-                            <br>
+                            
 
-                        </div>
+                           
+                           
+                        
                         <br>
                         <br>
                         <div>
@@ -64,7 +68,13 @@
                             <button class="btn btn-primary" id="loginbtn">Login</button>
 
                         </div>
+                        <br>
+                        </div>
+                        <div class="col"></div>
+                         </div>
+
                     </form>
+                    
                 </div>
 
 
