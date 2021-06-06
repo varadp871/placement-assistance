@@ -69,25 +69,20 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea type="text" class="form-control" id="description" aria-describedby="description" name="description"></textarea>
             </div>
+     <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCompanyModal">Add Company</button>
 
 
            
         </form>
-     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCompanyModal">Add Company</button>
             <!-- Modal -->
             <div class="modal fade" id="addCompanyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">SUCCESS!</h5>
-                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             Company Added Successfully
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            
                         </div>
                     </div>
                 </div>

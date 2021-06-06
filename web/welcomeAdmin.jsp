@@ -108,9 +108,13 @@
             <form action="AddCompanySubmit.jsp">
                 <button type="submit" class="btn btn-primary">Add new Company</button>
             </form>
-             <form action="ActiveCompanies.jsp">
+            <form action="ActiveCompanies.jsp">
                 <button type="submit" class="btn btn-primary">View Active Companies</button>
             </form>
+            <form action="RemoveCompanyLanding.jsp">
+                <button type="submit" class="btn btn-outline-warning">Remove Active Companies</button>
+            </form>
+
             <form action="LogoutAdmin">
                 <button type="submit" class="btn btn-danger">Logout</button>
             </form>

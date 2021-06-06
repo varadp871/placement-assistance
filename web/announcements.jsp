@@ -36,6 +36,9 @@
 
         <h1>Hello, ${GRNo}!</h1>
         <form action="stuProfile.jsp">
+            <button type="submit" class="btn btn-outline-warning">Register</a></button>
+        </form>
+        <form action="stuProfile.jsp">
             <button type="submit" class="btn btn-outline-warning">Update Profile</a></button>
         </form>
         <form action="TrackCompanies.jsp">

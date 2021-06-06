@@ -61,11 +61,13 @@ public class AddCompany extends HttpServlet {
             conn = DriverManager.getConnection(url + dbname, userName, Password);
             stmt = conn.createStatement();
             String sql = "INSERT INTO active_companies VALUES('" + company_name + "','" + offered_ctc + "','" + required_cgpa + "','" + description + "','"+additionalDetails+"', '" + allBranches + "')";
-            
+            String sqll = "ALTER TABLE student_register ADD "+company_name+" BOOL DEFAULT NULL";
             stmt.executeUpdate(sql);
-            
-         
-        response.sendRedirect("welcomeAdmin.jsp");
+//            out.println("Inserted");
+            stmt.executeUpdate(sqll);
+//            out.println("added to student register");
+         response.setHeader("Refresh", "2;url=welcomeAdmin.jsp");
+//         response.sendRedirect("welcomeAdmin.jsp");
        
         } catch (Exception e) {
             out.println(e);
