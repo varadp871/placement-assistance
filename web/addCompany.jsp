@@ -14,6 +14,14 @@
         <title>Add a company</title>
     </head>
     <body>
+         <%
+
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+                if (session.getAttribute("username") == null) {
+                    response.sendRedirect("ad.jsp");
+                }
+            %>
         <h1>Add a new Company</h1>
 
         <form action="AddCompanySubmit.jsp">

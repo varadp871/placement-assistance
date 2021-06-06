@@ -31,6 +31,14 @@
     </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <body>
+         <%
+
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+                if (session.getAttribute("username") == null) {
+                    response.sendRedirect("ad.jsp");
+                }
+            %>
 
         <table class="table">
             <thead>
