@@ -87,11 +87,11 @@
                         <td><%=rs.getString("personal_email")%></td>
                         <td><%=rs.getString("qualification")%></td>
                         <td><%=rs.getInt("passing_year")%></td>
-                        <td><%=rs.getFloat("10th_%")%></td>
-                        <td><%=rs.getFloat("12th_%")%></td>
+                        <td><%=rs.getFloat("10th_per")%></td>
+                        <td><%=rs.getFloat("12th_per")%></td>
                         <td><%=rs.getString("college_name")%></td>
                         <td><%=rs.getFloat("graduation_cgpa")%></td>
-                        <td><%=rs.getFloat("graduation_%")%></td>
+                        <td><%=rs.getFloat("graduation_per")%></td>
                     </tr>
                     <%
                             }

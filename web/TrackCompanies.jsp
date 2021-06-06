@@ -36,10 +36,6 @@
                     response.sendRedirect("stu.jsp");
                 }
 
-                if (session.getAttribute("registered") == null) {
-                    response.sendRedirect("announcements0.jsp");
-
-                }
 
             %>
 

@@ -67,8 +67,7 @@
                     <td><%=rs.getString("offered_ctc")%></td>
                     <td><%=rs.getString("required_cgpa")%></td>
                     <td><%=rs.getString("description")%></td>
-                    <td><%=rs.getString("branches")%></td>
-                    <td><a href="RemoveCompanyFinal.jsp?company=<%=rs.getString("company_name")%>"><button type="button" class="delete">Delete</button></a></td>
+                    <td><a href="RemoveCompanyFinal.jsp?company=<%=rs.getString("company_name")%>"><button type="button" class="btn btn-outline-warning">Delete</button></a></td>
                 </tr>
 
 
@@ -83,7 +82,7 @@
             </tbody>
         </table>
 
-        <form action="LogoutStu">
+        <form action="LogoutAdmin">
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
     </body>

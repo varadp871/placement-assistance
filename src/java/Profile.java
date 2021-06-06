@@ -55,7 +55,6 @@ public class Profile extends HttpServlet{
         String mbno = req.getParameter("mb_no");
         String per_email = req.getParameter("personal_email");
         String quali = req.getParameter("qualification");
-        String registered = "true";
         String pass_yr = req.getParameter("passing_year");
         String tenth_per = req.getParameter("tenth_per");
         String twelth_per = req.getParameter("twelth_per");
@@ -73,7 +72,7 @@ public class Profile extends HttpServlet{
   (connectionURL, "root", ""); 
   //Add the data into the database
   String sql = 
-  "INSERT INTO student_register VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  "INSERT INTO student_register(grno, email, full_name, gender, dob, mb_number, personal_email, qualification, passing_year, 10th_per , 12th_per , diploma_per , college_name, graduation_cgpa, graduation_per , resume) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   
   PreparedStatement pst = 
   connection.prepareStatement(sql);
@@ -81,22 +80,21 @@ public class Profile extends HttpServlet{
             pst.setString(1, grno);
             pst.setString(2, email);
             pst.setString(3, full_name);
-            pst.setString(4, registered);
-            pst.setString(5, gender);
-            pst.setString(6, dob);
-            pst.setString(7, mbno);
-            pst.setString(8, per_email);
-            pst.setString(9, quali);
-            pst.setString(10, pass_yr);
-            pst.setString(11, tenth_per);
-            pst.setString(12, twelth_per);
-            pst.setString(13, diploma_per);
-            pst.setString(14, college_name);
-            pst.setString(15, grad_cgpa);
-            pst.setString(16, grad_per);
+            pst.setString(4, gender);
+            pst.setString(5, dob);
+            pst.setString(6, mbno);
+            pst.setString(7, per_email);
+            pst.setString(8, quali);
+            pst.setString(9, pass_yr);
+            pst.setString(10, tenth_per);
+            pst.setString(11, twelth_per);
+            pst.setString(12, diploma_per);
+            pst.setString(13, college_name);
+            pst.setString(14, grad_cgpa);
+            pst.setString(15, grad_per);
              if (inputStream != null) {
                 // fetches input stream of the upload file for the blob column
-                pst.setBlob(17, inputStream);
+                pst.setBlob(16, inputStream);
             }
             int row = pst.executeUpdate();
             if (row > 0) {
