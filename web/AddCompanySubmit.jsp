@@ -42,36 +42,36 @@
                 <input type="text" class="form-control" id="required_cgpa" name="required_cgpa">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id ="computer_science" value="comp">
-                <label class="form-check-label" for="computer_science">Computer Science</label>
+                <input type="checkbox" class="form-check-input" name="branch" id ="COMP" value="COMP">
+                <label class="form-check-label" for="COMP">Computer Science</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="info_tech" value="it">
-                <label class="form-check-label" for="info_tech">Information Technology</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="IT" value="IT">
+                <label class="form-check-label" for="IT">Information Technology</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="entc" value="entc">
-                <label class="form-check-label" for="entc">Electronics & Telecommunications</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="ENTC" value="ENTC">
+                <label class="form-check-label" for="ENTC">Electronics & Telecommunications</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="elex" value="elex">
-                <label class="form-check-label" for="elex">Electronics</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="ELEX" value="ELEX">
+                <label class="form-check-label" for="ELEX">Electronics</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="mech" value="mech">
-                <label class="form-check-label" for="mech">Mechanical</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="MECH" value="MECH">
+                <label class="form-check-label" for="MECH">Mechanical</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="indus" value="indus">
-                <label class="form-check-label" for="indus">Industrial</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="INDUS" value="INDUS">
+                <label class="form-check-label" for="INDUS">Industrial</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="prod" value="prod">
-                <label class="form-check-label" for="prod">Production</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="PROD" value="PROD">
+                <label class="form-check-label" for="PROD">Production</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="branch" id="chem" value="chem" >
-                <label class="form-check-label" for="chem">Chemical</label>
+                <input type="checkbox" class="form-check-input" name="branch" id="CHEM" value="CHEM" >
+                <label class="form-check-label" for="CHEM">Chemical</label>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>

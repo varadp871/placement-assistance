@@ -62,7 +62,7 @@
                         <th scope="col">Offered_ctc</th>
                         <th scope="col">Required CGPA</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Branches</th>
+                        <!--<th scope="col">Branches</th>-->
                         <th scope="col">Application Status</th>
 
                     </tr>
@@ -70,8 +70,17 @@
                 <tbody>
                     <%            try {
                             Class.forName(driver).newInstance();
+                            String branches = "";
                             conn = DriverManager.getConnection(url + dbname, userName, Password);
-                            String Query = "Select * from active_companies";
+                            String gr_no = session.getAttribute("GRNo").toString();
+                            stmt = conn.createStatement();
+                            String sql = "Select qualification from student_register where grno ="+gr_no;
+                            ResultSet branch = stmt.executeQuery(sql);
+                            while(branch.next()){
+                                branches = branch.getString("qualification");
+                            }
+                            String Query = "Select * from active_companies where "+ branches +" = 1";
+                           
                             stmt = conn.createStatement();
                             rs = stmt.executeQuery(Query);
                             while (rs.next()) {
@@ -86,7 +95,8 @@
                         <td><%=rs.getString("offered_ctc")%></td>
                         <td><%=rs.getString("required_cgpa")%></td>
                         <td><%=rs.getString("description")%></td>
-                        <td><%=rs.getString("branches")%></td>
+                        
+                        <!--<td>></td>-->
 
                         <td><a href="ApplyCompany.jsp?company=<%=rs.getString("company_name")%>">
                                 <button class="btn btn-outline-info" style="width: 150px; line-height: 1.0;" name="applyButton">Apply</button>

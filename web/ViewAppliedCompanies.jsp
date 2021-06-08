@@ -33,6 +33,7 @@
                     response.sendRedirect("ad.jsp");
                 }
                 String company_name = request.getParameter("company");
+                pageContext.setAttribute("company_name", company_name);
             %>
             <h1>Students applied for ${company_name}</h1>
 

@@ -49,21 +49,38 @@ public class AddCompany extends HttpServlet {
         String offered_ctc = request.getParameter("offered_ctc");
         String required_cgpa = request.getParameter("required_cgpa");
         String description = request.getParameter("description");
-        String allBranches = "";
+        int ELEX = 0, COMP = 0, IT = 0, ENTC = 0, INDUS = 0, PROD = 0, CHEM = 0, MECH = 0;
         String additionalDetails = "N/A";
         
         for (int i = 0; i < branches.length; i++) {
-            allBranches += branches[i] + " ";
+           if(branches[i].equals("COMP")){
+               COMP = 1;
+           }else if(branches[i].equals("IT")){
+               IT = 1;
+           }else if(branches[i].equals("ENTC")){
+               ENTC = 1;
+           }else if(branches[i].equals("ELEX")){
+               ELEX = 1;
+           }else if(branches[i].equals("MECH")){
+               MECH = 1;
+           }else if(branches[i].equals("INDUS")){
+               INDUS = 1;
+           }else if(branches[i].equals("PROD")){
+               PROD = 1;
+           }else if(branches[i].equals("CHEM")){
+               CHEM = 1;
+           }
+           out.println(branches[i] + "\n");
         }
 
         try {
             Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url + dbname, userName, Password);
             stmt = conn.createStatement();
-            String sql = "INSERT INTO active_companies VALUES('" + company_name + "','" + offered_ctc + "','" + required_cgpa + "','" + description + "','"+additionalDetails+"', '" + allBranches + "')";
+            String sql = "INSERT INTO active_companies VALUES('" + company_name + "', "+ offered_ctc +" , " + required_cgpa + " ,'" + description + "','"+additionalDetails+"',"+COMP +"," + IT + ", " + ENTC + ", " + ELEX + ", " + MECH + ", " + INDUS + ", " + PROD + ", " + CHEM + ")";
             String sqll = "ALTER TABLE student_register ADD "+company_name+" BOOL DEFAULT NULL";
             stmt.executeUpdate(sql);
-//            out.println("Inserted");
+            out.println("Inserted \n ");
             stmt.executeUpdate(sqll);
 //            out.println("added to student register");
          response.setHeader("Refresh", "2;url=welcomeAdmin.jsp");

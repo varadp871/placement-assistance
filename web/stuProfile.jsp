@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Your Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
         <style>
             body {
@@ -114,8 +114,17 @@
                 <input type="text" name="mb_no" size="15"/> <br> <br> 
                 <label> Personal Email </label>         
                 <input type="text" name="personal_email" size="15"/> <br> <br> 
-                <label> Qualification </label>         
-                <input type="text" name="qualification" size="15"/> <br> <br>  
+                <label> Qualification </label>
+                <select class="form-select" aria-label="qualification" name ="qualification">
+                    <option selected value="COMP">Computer Science</option>
+                    <option value="IT">IT</option>
+                    <option value="ENTC">Electronics & Telecommunications</option>
+                    <option value="ELEX">Electronics</option>
+                    <option value="MECH">Mechanical</option>
+                    <option value="INDUS">Industrial</option>
+                    <option value="PROD">Production</option>
+                    <option value="CHEM">Chemical</option>
+                </select> 
                 <label> Passing Year </label>         
                 <input type="text" name="passing_year" size="15"/> <br> <br>  
                 <label> Tenth % </label>         
@@ -138,8 +147,8 @@
             </div>
 
         </form>  
-        
-         <form action="LogoutStu">
+
+        <form action="LogoutStu">
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
 
