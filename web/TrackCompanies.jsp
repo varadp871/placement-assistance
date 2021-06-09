@@ -74,20 +74,19 @@
                             conn = DriverManager.getConnection(url + dbname, userName, Password);
                             String gr_no = session.getAttribute("GRNo").toString();
                             stmt = conn.createStatement();
-                            String sql = "Select qualification from student_register where grno ="+gr_no;
+                            String sql = "Select qualification from student_register where grno =" + gr_no;
                             ResultSet branch = stmt.executeQuery(sql);
-                            while(branch.next()){
+                            while (branch.next()) {
                                 branches = branch.getString("qualification");
                             }
-                            String Query = "Select * from active_companies where "+ branches +" = 1";
-                           
+                            String Query = "Select * from active_companies where " + branches + " = 1";
+
                             stmt = conn.createStatement();
                             rs = stmt.executeQuery(Query);
                             while (rs.next()) {
-                                
-                                
+
                                 String company_name = rs.getString("company_name");
-               
+                                pageContext.setAttribute("company_name", company_name);
 
                     %>
                     <tr>
@@ -95,7 +94,7 @@
                         <td><%=rs.getString("offered_ctc")%></td>
                         <td><%=rs.getString("required_cgpa")%></td>
                         <td><%=rs.getString("description")%></td>
-                        
+
                         <!--<td>></td>-->
 
                         <td><a href="ApplyCompany.jsp?company=<%=rs.getString("company_name")%>">
@@ -114,13 +113,16 @@
 
                         }
                     %>
-
+ 
                 </tbody>
             </table>
+
+
 
             <form action="LogoutStu">
                 <button type="submit" class="btn btn-danger">Logout</button>
             </form>
         </body>
-
+     
+            
     </html>

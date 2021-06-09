@@ -31,14 +31,15 @@
     </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <body>
-         <%
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            if (session.getAttribute("username") == null) {
+                response.sendRedirect("ad.jsp");
+            }
 
-                if (session.getAttribute("username") == null) {
-                    response.sendRedirect("ad.jsp");
-                }
-            %>
+
+        %>
 
         <table class="table">
             <thead>
@@ -52,14 +53,16 @@
 
             </thead>
             <tbody>
-                <%
-                    try {
+                <%                    try {
                         connection = DriverManager.getConnection(connectionUrl + database, userid, password);
                         statement = connection.createStatement();
                         String sql = "SELECT * FROM active_companies";
                         rs = statement.executeQuery(sql);
                         int i = 0;
                         while (rs.next()) {
+
+                            String company_name = rs.getString("company_name");
+                            pageContext.setAttribute("company_name", company_name);
                 %>
 
                 <tr>
@@ -67,7 +70,7 @@
                     <td><%=rs.getString("offered_ctc")%></td>
                     <td><%=rs.getString("required_cgpa")%></td>
                     <td><%=rs.getString("description")%></td>
-                    <td><a href="RemoveCompanyFinal.jsp?company=<%=rs.getString("company_name")%>"><button type="button" class="btn btn-outline-warning">Delete</button></a></td>
+                    <td><a href="RemoveCompanyFinal.jsp?company=<%=rs.getString("company_name")%>"><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#DeleteCompanyModal">Delete</button></a></td>
                 </tr>
 
 
@@ -81,6 +84,19 @@
                 %>
             </tbody>
         </table>
+
+        <div class="modal fade" id="DeleteCompanyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">SUCCESS!</h5>
+                    </div>
+                    <div class="modal-body">
+                        Deleted ${company_name} Successfully!
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <form action="LogoutAdmin">
             <button type="submit" class="btn btn-danger">Logout</button>

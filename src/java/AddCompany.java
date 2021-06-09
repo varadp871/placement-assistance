@@ -70,7 +70,6 @@ public class AddCompany extends HttpServlet {
            }else if(branches[i].equals("CHEM")){
                CHEM = 1;
            }
-           out.println(branches[i] + "\n");
         }
 
         try {
@@ -80,7 +79,7 @@ public class AddCompany extends HttpServlet {
             String sql = "INSERT INTO active_companies VALUES('" + company_name + "', "+ offered_ctc +" , " + required_cgpa + " ,'" + description + "','"+additionalDetails+"',"+COMP +"," + IT + ", " + ENTC + ", " + ELEX + ", " + MECH + ", " + INDUS + ", " + PROD + ", " + CHEM + ")";
             String sqll = "ALTER TABLE student_register ADD "+company_name+" BOOL DEFAULT NULL";
             stmt.executeUpdate(sql);
-            out.println("Inserted \n ");
+         
             stmt.executeUpdate(sqll);
 //            out.println("added to student register");
          response.setHeader("Refresh", "2;url=welcomeAdmin.jsp");
