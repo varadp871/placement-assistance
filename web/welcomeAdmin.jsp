@@ -35,75 +35,8 @@
 
 
 
-            <h1>Hello ${username} !</h1>
-
-            <h2>Students List with details</h2>
-            <%
-                Connection conn;
-                Statement stmt;
-                ResultSet rs;
-                String driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://localhost:3306/";
-                String dbname = "placement-assistance";
-                String userName = "root";
-                String Password = "";
-
-            %>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Gr. No</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Date of Birth</th>
-                        <th scope="col">MB Number</th>
-                        <th scope="col">Personal Email</th>
-                        <th scope="col">Qualification</th>
-                        <th scope="col">Passing year</th>
-                        <th scope="col">10%</th>
-                        <th scope="col">12%</th>
-                        <th scope="col">College Name</th>
-                        <th scope="col">CGPA</th>
-                        <th scope="col">%</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <%            try {
-                            Class.forName(driver).newInstance();
-                            conn = DriverManager.getConnection(url + dbname, userName, Password);
-                            String Query = "Select * from student_register";
-                            stmt = conn.createStatement();
-                            rs = stmt.executeQuery(Query);
-                            while (rs.next()) {
-                    %>
-                    <tr>
-                        <th scope="row"><%=rs.getInt("grno")%></th>
-                        <td><%=rs.getString("email")%></td>
-                        <td><%=rs.getString("full_name")%></td>
-                        <td><%=rs.getString("dob")%></td>
-                        <td><%=rs.getString("mb_number")%></td>
-                        <td><%=rs.getString("personal_email")%></td>
-                        <td><%=rs.getString("qualification")%></td>
-                        <td><%=rs.getInt("passing_year")%></td>
-                        <td><%=rs.getFloat("10th_per")%></td>
-                        <td><%=rs.getFloat("12th_per")%></td>
-                        <td><%=rs.getString("college_name")%></td>
-                        <td><%=rs.getFloat("graduation_cgpa")%></td>
-                        <td><%=rs.getFloat("graduation_per")%></td>
-                    </tr>
-                    <%
-                            }
-
-                        } catch (Exception ex) {
-                            out.println("Exception : " + ex.getMessage());
-                            ex.printStackTrace();
-                        }
-                    %>
-
-                </tbody>
-            </table>
+            <h1 class="text-muted ms-4 mt-4 fst-italic">Hello ${username} !</h1>
+         
 
             <form action="AddCompanySubmit.jsp">
                 <button type="submit" class="btn btn-primary">Add new Company</button>
@@ -119,4 +52,11 @@
                 <button type="submit" class="btn btn-danger">Logout</button>
             </form>
         </body>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
     </html>
