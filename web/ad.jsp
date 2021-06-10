@@ -39,7 +39,7 @@
                     <form  method="POST" action="AdminSignIn">
                         <div id="login" class="row">
                             <div class="col"></div>
-                            <div class="col border border-primary rounded rounded-3 border-4">
+                            <div class="col border-top border-4 shadow p-3 mb-5 bg-body rounded">
                                 <br>
                                 <br>
                                  <div class="input-group mb-3">

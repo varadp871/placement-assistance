@@ -46,7 +46,7 @@ input[type=number] {
         <div class="container d-flex justify-content-center">
             
                 <br>
-                <div class='border border-4 border-primary rounded-3 px-3 py-5'>
+                <div class='border-top border-4 px-3 py-5 shadow p-3 mb-5 bg-body rounded'>
                     <form  method="POST" action="StudentSignin">
                         <div id="login">
 

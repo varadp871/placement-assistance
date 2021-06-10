@@ -32,7 +32,7 @@
                     response.sendRedirect("ad.jsp");
                 }
             %>
-            <h1>Active Companies</h1>
+            <h1 class="text-muted fst-italic ms-4 pt-4">Active Companies</h1>
             <%
                 Connection conn;
                 Statement stmt;
@@ -44,38 +44,46 @@
                 String Password = "";
 
             %>
+<!--<div class="mt-5">-->
+<div class= "shadow p-3 mb-5 bg-body rounded position-absolute top-0 start-50 translate-middle-x border-5 border-top" style="margin-top: 135px">
+                
+                    <div class="container d-flex flex-wrap">
+                        <%            try {
+                                Class.forName(driver).newInstance();
+                                conn = DriverManager.getConnection(url + dbname, userName, Password);
+                                String Query = "Select company_name, offered_ctc, required_cgpa from active_companies";
+                                stmt = conn.createStatement();
+                                rs = stmt.executeQuery(Query);
+                                while (rs.next()) {
+
+                                    String company_name = rs.getString("company_name");
 
 
-            <%            try {
-                    Class.forName(driver).newInstance();
-                    conn = DriverManager.getConnection(url + dbname, userName, Password);
-                    String Query = "Select company_name, offered_ctc, required_cgpa from active_companies";
-                    stmt = conn.createStatement();
-                    rs = stmt.executeQuery(Query);
-                    while (rs.next()) {
+                        %>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=rs.getString("company_name")%></h5>
+                                <p class="card-text">Offered CTC : <%=rs.getString("offered_ctc")%></p>
+                                <p class="card-text">Required CGPA : <%=rs.getString("required_cgpa")%></p>
+                                <a href="ViewAppliedCompanies.jsp?company=<%=rs.getString("company_name")%>" class="btn btn-primary" >View Applications</a>
+                            </div>
+                        </div>
+                        <%                              }
 
-                        String company_name = rs.getString("company_name");
+                            } catch (Exception ex) {
+                                out.println("Exception : " + ex.getMessage());
+                                ex.printStackTrace();
 
+                            }
+                        %>
+                    </div>
 
-            %>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><%=rs.getString("company_name")%></h5>
-                    <p class="card-text">Offered CTC : <%=rs.getString("offered_ctc")%></p>
-                    <p class="card-text">Required CGPA : <%=rs.getString("required_cgpa")%></p>
-                    <a href="ViewAppliedCompanies.jsp?company=<%=rs.getString("company_name")%>" class="btn btn-primary" >View Applications</a>
+                    <form action="LogoutAdmin" class="mt-5">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
                 </div>
-            </div>
-            <%                              }
 
-                } catch (Exception ex) {
-                    out.println("Exception : " + ex.getMessage());
-                    ex.printStackTrace();
+            <!--</div>-->
 
-                }
-            %>
-            <form action="LogoutAdmin">
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
         </body>
     </html>

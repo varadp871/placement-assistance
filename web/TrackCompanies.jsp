@@ -39,10 +39,10 @@
 
             %>
 
-            <h1>Hello ${GRNo}!</h1>
+           
 
 
-            <h2>Apply for a Company :</h2>
+
 
             <%            Connection conn;
                 Statement stmt;
@@ -52,77 +52,96 @@
                 String dbname = "placement-assistance";
                 String userName = "root";
                 String Password = "";
-
-            %>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Company Name</th>
-                        <th scope="col">Offered_ctc</th>
-                        <th scope="col">Required CGPA</th>
-                        <th scope="col">Description</th>
-                        <!--<th scope="col">Branches</th>-->
-                        <th scope="col">Application Status</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <%            try {
-                            Class.forName(driver).newInstance();
-                            String branches = "";
-                            conn = DriverManager.getConnection(url + dbname, userName, Password);
-                            String gr_no = session.getAttribute("GRNo").toString();
-                            stmt = conn.createStatement();
-                            String sql = "Select qualification from student_register where grno =" + gr_no;
-                            ResultSet branch = stmt.executeQuery(sql);
-                            while (branch.next()) {
-                                branches = branch.getString("qualification");
-                            }
-                            String Query = "Select * from active_companies where " + branches + " = 1";
-
-                            stmt = conn.createStatement();
-                            rs = stmt.executeQuery(Query);
-                            while (rs.next()) {
-
-                                String company_name = rs.getString("company_name");
-                                pageContext.setAttribute("company_name", company_name);
-
-                    %>
-                    <tr>
-                        <th scope="row"><%=rs.getString("company_name")%></th>
-                        <td><%=rs.getString("offered_ctc")%></td>
-                        <td><%=rs.getString("required_cgpa")%></td>
-                        <td><%=rs.getString("description")%></td>
-
-                        <!--<td>></td>-->
-
-                        <td><a href="ApplyCompany.jsp?company=<%=rs.getString("company_name")%>">
-                                <button class="btn btn-outline-info" style="width: 150px; line-height: 1.0;" name="applyButton">Apply</button>
-
-                            </a>
-                        </td>
-
-                    </tr>
-                    <%
-                            }
-
-                        } catch (Exception ex) {
-                            out.println("Exception : " + ex.getMessage());
-                            ex.printStackTrace();
-
-                        }
-                    %>
- 
-                </tbody>
-            </table>
-
-
-
-            <form action="LogoutStu">
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
-        </body>
-     
             
+                
+            %>
+             <h1 class="text-muted fst-italic ms-4 pt-4">Hello, ${GRNo}!</h1>
+            
+            <div class="container">
+                <div class="container">
+                    <div class="nav justify-content-between">
+                        <div class="nav-item"></div>
+                        <h2 class="text-muted fw-bold nav-item mb-5">Apply for a Company</h2>
+<!--                        <div class="nav justify-content-end"> -->
+
+                        <form action="LogoutStu" class="nav-item">
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
+                    <!--</div>-->
+                    </div>
+                    
+                    
+                </div>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Offered_ctc</th>
+                            <th scope="col">Required CGPA</th>
+                            <th scope="col">Description</th>
+                            <!--<th scope="col">Branches</th>-->
+                            <th scope="col">Application Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%            try {
+                                Class.forName(driver).newInstance();
+                                String branches = "";
+                                conn = DriverManager.getConnection(url + dbname, userName, Password);
+                                String gr_no = session.getAttribute("GRNo").toString();
+                                stmt = conn.createStatement();
+                                String sql = "Select qualification from student_register where grno =" + gr_no;
+                                ResultSet branch = stmt.executeQuery(sql);
+                                while (branch.next()) {
+                                    branches = branch.getString("qualification");
+                                }
+                                String Query = "Select * from active_companies where " + branches + " = 1";
+
+                                stmt = conn.createStatement();
+                                rs = stmt.executeQuery(Query);
+                                while (rs.next()) {
+
+                                    String company_name = rs.getString("company_name");
+                                    pageContext.setAttribute("company_name", company_name);
+
+                        %>
+                        <tr>
+                            <th scope="row"><%=rs.getString("company_name")%></th>
+                            <td><%=rs.getString("offered_ctc")%></td>
+                            <td><%=rs.getString("required_cgpa")%></td>
+                            <td><%=rs.getString("description")%></td>
+
+                            <!--<td>></td>-->
+
+                            <td><a href="ApplyCompany.jsp?company=<%=rs.getString("company_name")%>">
+                                    <button class="btn btn-outline-info" style="width: 150px; line-height: 1.0;" name="applyButton">Apply</button>
+
+                                </a>
+                            </td>
+
+                        </tr>
+                        <%
+                                }
+
+                            } catch (Exception ex) {
+                                out.println("Exception : " + ex.getMessage());
+                                ex.printStackTrace();
+
+                            }
+                        %>
+
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+
+        </body>
+
+
     </html>

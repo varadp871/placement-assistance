@@ -41,7 +41,9 @@
 
         %>
 
-        <table class="table">
+        <div class="container">
+            <h2 class="text-muted text-center my-3">View Active Companies</h2>
+             <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Company Name</th>
@@ -97,9 +99,12 @@
                 </div>
             </div>
         </div>
-
+                    <br>
+                    <br>
         <form action="LogoutAdmin">
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
+        </div>
+       
     </body>
 </html>
