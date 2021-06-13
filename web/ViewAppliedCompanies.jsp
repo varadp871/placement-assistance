@@ -4,6 +4,8 @@
     Author     : my pc
 --%>
 
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.OutputStream"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page
     import="java.io.IOException;"
@@ -44,6 +46,7 @@
                         <th scope="col">Full Name</th>
                         <th scope="col">Graduation CGPA</th>
                         <th scope="col">Mobile Number</th>
+                        <th scope="col">Resume</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,7 +57,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/placement-assistance", "root", "");
                     Statement st = conn.createStatement();
-                    rs = st.executeQuery("SELECT grno, full_name, graduation_cgpa, mb_number FROM student_register WHERE " + company_name + "=1 AND graduation_cgpa >= (SELECT required_cgpa FROM active_companies WHERE company_name = '"+company_name+"')");
+                    rs = st.executeQuery("SELECT grno, full_name, graduation_cgpa, mb_number, resume FROM student_register WHERE " + company_name + "=1 AND graduation_cgpa >= (SELECT required_cgpa FROM active_companies WHERE company_name = '"+company_name+"')");
                     while (rs.next()) {
             %>
            
@@ -63,6 +66,7 @@
                         <td><%=rs.getString("full_name")%></td>
                         <td><%=rs.getString("graduation_cgpa")%></td>
                         <td><%=rs.getString("mb_number")%></td>
+                        <td><a target="_blank" href="pdfservlet?grno=<%=rs.getString("grno")%>">View Resume</a></td>
                     </tr>
                     
                 

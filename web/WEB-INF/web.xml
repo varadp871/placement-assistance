@@ -44,6 +44,14 @@
         <servlet-name>AddCompany</servlet-name>
         <servlet-class>AddCompany</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Attach</servlet-name>
+        <servlet-class>Attach</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pdfservlet</servlet-name>
+        <servlet-class>pdfservlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Schedule</servlet-name>
         <url-pattern>/Schedule</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>AddCompany</servlet-name>
         <url-pattern>/AddCompany</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Attach</servlet-name>
+        <url-pattern>/Attach</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pdfservlet</servlet-name>
+        <url-pattern>/pdfservlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
