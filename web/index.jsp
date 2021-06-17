@@ -161,7 +161,7 @@
                <div class="col-md-12 ">
                   <div class="titlepage">
                      <h2><strong class="black"> VIT</strong>  Pune</h2>
-                     <span>For more information regarding the Institute, please click <a href="http://www.vit.edu" style="text-decoration: underline;">here</a></span>
+                     <span>For more information regarding the Institute, please click <a href="http://www.vit.edu" target="_blank" style="text-decoration: underline;">here</a></span>
                   </div>
                </div>
             </div>

@@ -154,9 +154,9 @@
             <header class="text-grey-700 body-font " style="margin-bottom: -50px;">
                 <div
                     class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                    <a
-                        class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-                        >
+                    
+                      
+                        
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -172,7 +172,7 @@
                             ></path>
                         </svg>
                         <span class="ml-3 text-2xl text-green-900 font-extrabold">Admin Login</span>
-                    </a>
+                    
                     <nav
                         class="md:ml-auto flex flex-wrap items-center text-base justify-center"
 
