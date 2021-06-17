@@ -44,6 +44,9 @@
         <form action="TrackCompanies.jsp">
             <button type="submit" class="btn btn-outline-primary">View Active Companies</button>
         </form>
+        <form action="CompaniesAppliedStudent.jsp">
+            <button type="submit" class="btn btn-outline-primary">Applied Companies</button>
+        </form>
         <form action="LogoutStu">
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
