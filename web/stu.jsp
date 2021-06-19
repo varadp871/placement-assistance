@@ -191,7 +191,7 @@ input[type=number] {
 
                         >
                         <a href="index.jsp" class="mr-5 hover:text-gray-900" style="text-decoration: none; color: beige">Home</a>
-                        <a href="about.jsp" class="mr-5 hover:text-gray-900" style="text-decoration: none; color: beige">About Us</a>
+                        <a href="AboutUs.jsp" class="mr-5 hover:text-gray-900" style="text-decoration: none; color: beige">About Us</a>
                     </nav>
                 </div>
             </header>

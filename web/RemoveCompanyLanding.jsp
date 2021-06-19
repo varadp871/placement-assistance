@@ -43,6 +43,20 @@
 
         <div class="container">
             <h2 class="text-muted text-center my-3">View Active Companies</h2>
+            <div class="container nav justify-content-end mt-2">
+             <div class="nav-item">
+                             <a class="btn btn-primary" href="welcomeAdmin.jsp">&larr; Back</a>
+
+     </div>
+                &nbsp;
+                &nbsp;
+             <form action="LogoutAdmin">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+                
+            </div>
+            <br>
+            
              <table class="table">
             <thead>
                 <tr>
@@ -101,9 +115,7 @@
         </div>
                     <br>
                     <br>
-        <form action="LogoutAdmin">
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+       
         </div>
        
     </body>

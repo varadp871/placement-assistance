@@ -33,6 +33,8 @@
                 }
             %>
             <h1 class="text-muted fst-italic ms-4 pt-4 text-center">Active Companies</h1>
+            
+            
             <%
                 Connection conn;
                 Statement stmt;
@@ -46,7 +48,20 @@
             %>
             <!--<div class="mt-5">-->
             <div class= "container shadow p-3 mb-5 bg-body rounded position-absolute top-0 start-50 translate-middle-x border-5 border-top" id="mainContainer" style="margin-top: 135px">
+ <div class="container nav justify-content-end mt-2">
+     <div class="nav-item">
+                             <a class="btn btn-primary" href="welcomeAdmin.jsp">&larr; Back</a>
 
+     </div>
+     &nbsp;
+     &nbsp;
+     <div class="nav-item">
+          <form action="LogoutAdmin">
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+     </div>
+                   
+                </div>
                 <div class="container d-flex flex-wrap ms-4">
                     <%            try {
                             Class.forName(driver).newInstance();
@@ -77,10 +92,8 @@
                         }
                     %>
                 </div>
-
-                <form action="LogoutAdmin" class="mt-5 mx-5">
-                    <button type="submit" class="btn btn-danger">Logout</button>
-                </form>
+               
+                
             </div>
 
             <!--</div>-->

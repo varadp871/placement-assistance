@@ -42,6 +42,9 @@
             <div>
                 <h1 class="text-muted fw-bold position-fixed top-0 start-50 translate-middle-x my-3 mx-3 pt-4">Add a new Company</h1>    
                 <div class="container nav justify-content-end mt-2">
+                      <a class="btn btn-primary" href="welcomeAdmin.jsp">&larr; Back</a>
+                    &nbsp;
+                    &nbsp;
                     <form action="LogoutAdmin" class="nav-item">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
