@@ -30,7 +30,7 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/placement-assistance", "root", "");
 Statement st=conn.createStatement();
 int i=st.executeUpdate("UPDATE student_register SET "+company_name+" = 1 WHERE grno="+gr_no);
-out.println("Applied Successfully!");
+out.println("Applied Successfully to "+company_name+"!");
 response.setHeader("Refresh", "2;url=TrackCompanies.jsp");
 }
 catch(Exception e)

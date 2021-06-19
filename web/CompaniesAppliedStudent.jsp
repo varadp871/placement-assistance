@@ -104,10 +104,12 @@
                                             <div class="limit-box my-3">
                                                 <nav class="main-menu">
                                                     <ul class="menu-area-main">
-                                                        <li> <a href="index.jsp">Home</a> </li>
-                                                        <li> <a href="about.jsp">About</a> </li>
+                                                        <!--<li> <a href="index.jsp">Home</a> </li>-->
+                                                        <li> <a href="announcements.jsp">&larr; Back</a> </li>
 
-                                                        <li><a href="contact.html">Contact Us</a></li>
+                                                        <li><form  action="LogoutStu">
+                                <button class="btn btn-danger"><strong>Logout</strong> </button>
+                            </form></li>
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -134,11 +136,7 @@
                                 <span>Below are the companies that I have applied so far</span>
                             </div>
                         </div>
-                        <div class="col-md-4 ">
-                            <form class="titlepage" action="LogoutStu">
-                                <button class="btn btn-danger"><h3><strong>Logout</strong>  </h3></button>
-                            </form>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

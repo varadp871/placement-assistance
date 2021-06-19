@@ -24,9 +24,10 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/placement-assistance", "root", "");
 Statement st=conn.createStatement();
 int i=st.executeUpdate("DELETE FROM active_companies WHERE company_name='"+company_name+"'");
-//out.println("Deleted");
+out.println("Deleted "+company_name+ " succesfully!");
 st.executeUpdate("ALTER TABLE student_register DROP COLUMN "+company_name);
-response.setHeader("Refresh", "2;url=RemoveCompanyLanding.jsp");
+
+response.setHeader("Refresh", "1;url=RemoveCompanyLanding.jsp");
 
 }
 catch(Exception e)

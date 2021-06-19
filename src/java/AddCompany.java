@@ -77,7 +77,7 @@ public class AddCompany extends HttpServlet {
             conn = DriverManager.getConnection(url + dbname, userName, Password);
             stmt = conn.createStatement();
             String sql = "INSERT INTO active_companies VALUES('" + company_name + "', "+ offered_ctc +" , " + required_cgpa + " ,'" + description + "','"+additionalDetails+"',"+COMP +"," + IT + ", " + ENTC + ", " + ELEX + ", " + MECH + ", " + INDUS + ", " + PROD + ", " + CHEM + ")";
-            String sqll = "ALTER TABLE student_register ADD "+company_name+" BOOL DEFAULT NULL";
+            String sqll = "ALTER TABLE student_register ADD "+company_name+" BOOL DEFAULT 0";
             stmt.executeUpdate(sql);
          
             stmt.executeUpdate(sqll);

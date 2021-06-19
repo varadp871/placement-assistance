@@ -49,8 +49,11 @@
         <main class="container shadow p-3 mb-5 bg-body rounded position-absolute top-50 start-50 translate-middle border-5 border-top">
 
             <div>
-                <h1 class="text-muted fw-bold position-fixed top-0 start-50 translate-middle-x my-3 mx-3 pt-4">Update Profile</h1>    
+                <h1 class="text-muted fw-bold position-fixed top-0 start-50 translate-middle-x my-3 mx-3 pt-4">Fill Your Profile</h1>    
                 <div class="container nav justify-content-end mt-4">
+                    <a class="btn btn-primary" href="announcements.jsp">&larr; Back</a>
+                    &nbsp;
+                    &nbsp;
                     <form action="LogoutStu" class="nav-item">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
@@ -127,7 +130,7 @@
 
 
 
-                    <button type="submit" class="btn btn-outline-primary mx-3">Update Info</button>    
+                    <button type="submit" class="btn btn-outline-primary mx-3">Register Info</button>    
                     <!--<td><input type="submit" value="Register1"/></td>-->
 
                 </div>

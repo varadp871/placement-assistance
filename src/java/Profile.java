@@ -8,7 +8,6 @@ import javax.servlet.*;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import javax.servlet.http.HttpSession;
 
 
 
@@ -99,6 +98,8 @@ public class Profile extends HttpServlet{
                 pst.setBlob(16, inputStream);
             }
             int row = pst.executeUpdate();
+              res.setHeader("Refresh", "2;url=announcements.jsp");
+
             if (row > 0) {
                 out.println( "File uploaded and saved into database \n");
             }
@@ -113,10 +114,10 @@ public class Profile extends HttpServlet{
   out.println("Couldn't load database driver: " 
   + e.getMessage());
   }
-  catch(SQLException e){
-  out.println("SQLException caught: " 
-  + e.getMessage());
-  }
+//  catch(SQLException e){
+//  out.println("SQLException caught: " 
+//  + e.getMessage());
+//  }
   catch (Exception e){
   out.println(e);
   }

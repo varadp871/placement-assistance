@@ -104,7 +104,7 @@
                   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                      <div class="full">
                         <div class="center-desk">
-                           <div class="logo"> <a href="index.html"><img id="logonew" src="assets/logo2.png" alt="#"></a> </div>
+                           <div class="logo"> <a href="index.jsp"><img id="logonew" src="assets/logo2.png" alt="#"></a> </div>
                         </div>
                      </div>
                   </div>
@@ -113,10 +113,10 @@
                         <div class="limit-box">
                            <nav class="main-menu">
                               <ul class="menu-area-main">
-                                 <li> <a href="index.html">Home</a> </li>
-                                 <li> <a href="about.html">About</a> </li>
+                                 <li> <a href="index.jsp">Home</a> </li>
+                                 <li> <a href="AboutUs.jsp">About US</a> </li>
                                 
-                                 <li><a href="contact.html">Contact Us</a></li>
+                                 <!--<li><a href="contact.html">Contact Us</a></li>-->
                               </ul>
                            </nav>
                         </div>
